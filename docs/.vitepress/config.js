@@ -42,8 +42,12 @@ function getGuideSidebar() {
       text: 'Guide',
       children: [
         {
-          text: 'Getting Started',
+          text: 'Overview',
           link: '/guide/',
+        },
+        {
+          text: 'Installation',
+          link: '/guide/installation/',
         },
         {
           text: 'Configuration',
@@ -54,8 +58,8 @@ function getGuideSidebar() {
     {
       text: 'Extending AEM Vite',
       children: [
-        { text: 'Why?', link: '/guide/extending/why/' },
-        { text: 'ClientLibs', link: '/guide/extending/clientlibs/' },
+        { text: 'Why extend AEM Vite?', link: '/guide/extending/why/' },
+        { text: 'Super-powered ClientLibs', link: '/guide/extending/clientlibs/' },
       ]
     },
     {
