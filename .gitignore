@@ -1,0 +1,6 @@
+docs/.vitepress/dist
+*.log
+.DS_Store
+.vite_opt_cache
+node_modules
+.vscode

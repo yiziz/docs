@@ -1,0 +1,8 @@
+.nav-bar-title {
+  align-items: center;
+  display: flex;
+}
+
+.logo {
+  height: 40px !important;
+}
