@@ -23,7 +23,11 @@ Seriously though, AEM Vite uses a Sling request filter that:
 
 All of this happens in real-time and is 100% transparent. This means less time deploying front end code and more time developing.
 
-## Framework support
+## AEM support
+
+AEM 6.5.7+ and AEMaaCS are fully supported.
+
+## Front end framework support
 
 AEM Vite supports all of the [currently available](https://vitejs.dev/guide/backend-integration.html) DevServer experiences.
 

@@ -39,3 +39,11 @@ Next, add the following to your [FileVault](https://jackrabbit.apache.org/fileva
   <target>/apps/${appId}-packages/application/install</target>
 </embedded>
 ```
+
+## Dependencies
+
+The current dependencies are:
+
+- ACS Commons 4.6.0 or greater
+
+This may change in the near future to provide compatibility to projects that don't rely on the aforementioned dependencies.

@@ -56,16 +56,16 @@ function getGuideSidebar() {
       ]
     },
     {
+      text: 'Front End',
+      children: [
+        { text: 'Preparing your project', link: '/guide/front-end/' },
+      ]
+    },
+    {
       text: 'Extending AEM Vite',
       children: [
         { text: 'Why extend AEM Vite?', link: '/guide/extending/why/' },
         { text: 'Super-powered ClientLibs', link: '/guide/extending/clientlibs/' },
-      ]
-    },
-    {
-      text: 'Front End',
-      children: [
-        { text: 'Preparing your project', link: '/guide/front-end/' },
       ]
     },
   ]
