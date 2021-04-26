@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /assets/logo.png
+heroImage: /static/logo.png
 heroAlt: AEM Vite logo
 heroText: Vite for AEM
 tagline: Next Generation Front End Tooling, but for AEM!
