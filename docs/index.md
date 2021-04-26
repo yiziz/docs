@@ -7,13 +7,22 @@ tagline: Next Generation Front End Tooling, but for AEM!
 actionText: Get Started
 actionLink: /guide/
 features:
-  - title: 💡 Simplicity First
-    details: Minimal setup with markdown-centered project structure helps you focus on writing.
+  - title: 🔎 Transparent
+    details: Once configured, AEM Vite becomes a background superhero that automatically switches things around for you.
 
-  - title: ⚡️ Vue-Powered
-    details: Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.
+  - title: ⚡️ Vite-Powered
+    details: Get all of the benefits Vite has to offer without needing to worry about AEM ClientLibs.
 
-  - title: Performant
-    details: VitePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
+  - title: 💡 Designed for Simplicity
+    details: Our goal was to bring Vite to AEM without the worry of annoying development tasks and tech debt.
+
+  - title: ⚙️ Endless Configurations
+    details: Setup as many different configs as your project needs. AEM Vite will handle all of the politics for you.
+
+  - title: ⚙️ Endless Configurations
+    details: Setup as many different configs as your project needs. AEM Vite will handle all of the politics for you.
+
+  - title: ⚙️ Endless Configurations
+    details: Setup as many different configs as your project needs. AEM Vite will handle all of the politics for you.
 footer: Apache 2.0 Licensed | Copyright © 2021-present Chris Shaw. Vite wording and logos are property of Evan You. Adobe and AEM wording and logos are property of Adobe Inc.
 ---

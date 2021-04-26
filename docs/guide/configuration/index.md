@@ -8,12 +8,14 @@ AEM Vite provides a factory configuration which enables multiple different front
 
 ## OSGI configuration
 
-Within your projects OSGI configuration folder, create a new file called `xyz.cshaw.aem.vite.impl.ViteDevServerConfigImpl-<project>.cfg.json`.
+Within your projects OSGI configuration folder, create a new file called:
 
-Because AEM Vite allows factories, you can create as many projects as you would like and you only need to replace `<project>` with something unqiue.
+> xyz.cshaw.aem.vite.impl.ViteDevServerConfigImpl-project.cfg.json
+
+Because AEM Vite allows factories, you can create as many projects as you would like and you only need to replace `project` with something unqiue.
 
 ::: warning .cfg.json not working?
-If using `.cfg.json` doesn't work for you, switch to the XML format `.config.xml`.
+If using `.cfg.json` doesn't work for you, switch to the XML format `.config.xml`. Read more about about creating [OSGI configurations](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/implementing/deploying/configuring-osgi.html?lang=en).
 :::
 
 ## Properties
@@ -42,7 +44,9 @@ A list of content paths where injection should occur.
 
 ### Manual injection selector
 
-A custom selector to use when automatic injection is disabled.
+A custom selector to use when automatic injection is disabled. You can enable AEM Vite by adding your custom selector to the content URL. E.g.
+
+> http://localhost:4502/content/project/mypage.vite.html
 
 **Key:** `manual.injection.selector`<br>
 **Type:** `String`<br>
@@ -95,3 +99,20 @@ Enable this option is enabled when using React to ensure things work correctly.
 **Key:** `using.react`<br>
 **Type:** `Boolean`<br>
 **Default:** `false`
+
+## Example configuration
+
+```json
+{
+  "automatic.injection": true,
+  "clientlib.categories": ["<project>.base"],
+  "content.paths": ["/content/<project>"],
+  "manual.injection.selector": "vite",
+  "devserver.protocol": "http",
+  "devserver.hostname": "127.0.0.1",
+  "devserver.docker": false,
+  "devserver.port": 3000,
+  "devserver.entrypoints": ["src/js/main.ts"],
+  "using.react": false
+}
+```
