@@ -15,7 +15,7 @@ Within your projects OSGI configuration folder, create a new file called:
 Because AEM Vite allows factories, you can create as many projects as you would like and you only need to replace `project` with something unqiue.
 
 ::: warning .cfg.json not working?
-If using `.cfg.json` doesn't work for you, switch to the XML format `.config.xml`. Read more about about creating [OSGI configurations](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/implementing/deploying/configuring-osgi.html?lang=en).
+If using `.cfg.json` doesn't work for you, switch to the XML format `.config.xml`. Read more about about creating [OSGI configuration](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/implementing/deploying/configuring-osgi.html?lang=en) files.
 :::
 
 ## Properties

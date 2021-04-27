@@ -25,7 +25,7 @@ All of this happens in real-time and is 100% transparent. This means less time d
 
 ## AEM support
 
-AEM 6.5.7+ and AEMaaCS are fully supported.
+AEM 6.5.7+ and the AEM SDK (AEMaaCS) are fully supported.
 
 ## Front end framework support
 

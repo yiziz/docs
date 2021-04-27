@@ -85,7 +85,7 @@ module.exports = {
 function getGuideSidebar() {
   return [
     {
-      text: 'Guide',
+      text: 'Backend (AEM)',
       children: [
         {
           text: 'Overview',
@@ -112,6 +112,13 @@ function getGuideSidebar() {
       children: [
         { text: 'Why extend AEM Vite?', link: '/guide/extending/why/' },
         { text: 'Super-powered ClientLibs', link: '/guide/extending/clientlibs/' },
+      ],
+    },
+    {
+      text: 'Legacy Bundles',
+      children: [
+        { text: 'What are they?', link: '/guide/legacy-bundles/' },
+        { text: 'ClientLibs support', link: '/guide/legacy-bundles/clientlibs/' },
       ],
     },
   ]
