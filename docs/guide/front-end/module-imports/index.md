@@ -10,7 +10,7 @@ An ES module import is a `import` statement that intructs your browser to automa
 
 Due to the way Vite generates outputs, `import` statements will become relative which in the context of AEM won't work. Lets say that we have a ClientLib located at:
 
-**/etc.clientlibs/project/clientlibs/my-clientlib.js**
+**/etc.clientlibs/&lt;project>/core.footer.js**
 
 Within `my-clientlib.js` lets assume that a module by the name of `modulea.js` needs to be imported by is been requested using:
 
@@ -18,7 +18,7 @@ Within `my-clientlib.js` lets assume that a module by the name of `modulea.js` n
 
 What you will see in your browser is a 404 request error for `modulea.js` because the request URI will end up looking something like:
 
-**/etc.clientlibs/project/resources/modulea.js**
+**/etc.clientlibs/&lt;project>/resources/modulea.js**
 
 ## Solving this problem
 
@@ -35,9 +35,9 @@ export default defineConfig(() => ({
   build: {
     rollupOptions: {
       output: {
-        assetFileNames: 'resources/[ext]/[name][extname]',
-        chunkFileNames: 'resources/js/[name].[hash].js',
-        entryFileNames: 'resources/js/[name].js',
+        assetFileNames: 'core.header/resources/[ext]/[name][extname]',
+        chunkFileNames: 'core.footer/resources/chunks/[name].[hash].js',
+        entryFileNames: 'core.footer/resources/js/[name].js',
       },
     },
   },

@@ -28,7 +28,7 @@ export default defineConfig(({ command }) => ({
     // ... all other plugins before, 'aemViteImportRewriter' must be last
     aemViteImportRewriter({
       command,
-      publicPath: '/etc.clientlibs/<project>/clientlibs/<clientlib name>/',
+      publicPath: '/etc.clientlibs/<project>/clientlibs/core.footer/resources/',
       sourcemap: true,
     }),
   ],
@@ -45,6 +45,6 @@ export default defineConfig(({ command }) => ({
 
 ## How this works
 
-Under the hood `es-module-lexer` is used to parse the rollup chunk source and identify all of the `import` statements. Once identified, they are parsed and all instances that use path patterns such as `./` or `../` for example will get replaced with `publicPath` configured in your plugin configuration.
+Under the hood `es-module-lexer` is used to parse the rollup chunk source and identifies all of the `import` statements. Once identified, they are parsed and all instances that use path patterns such as `./` or `../` will get replaced with `publicPath` configured in your plugin configuration.
 
 By rewriting the imports we solve another issue and that is we prevent Vite adding duplicate imports via its dynamic import polyfill transformer.

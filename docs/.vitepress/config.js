@@ -109,6 +109,7 @@ function getGuideSidebar() {
       text: 'Front End',
       children: [
         { text: 'Preparing your project', link: '/guide/front-end/' },
+        { text: 'Optimal Structure', link: '/guide/front-end/structure/' },
         { text: 'Module imports', link: '/guide/front-end/module-imports/' },
         { text: 'Dynamic imports', link: '/guide/front-end/dynamic-imports/' },
       ],

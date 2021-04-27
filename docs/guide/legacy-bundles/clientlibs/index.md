@@ -6,20 +6,24 @@ title: ClientLibs Support
 
 A simple solution to this problem would be to have another separate ClientLib structure containing only `js.txt`. Each ClientLib directory would have a unique name as outlined below.
 
-| ClientLib Name       | `esModule` | `noModule` | `css.txt` | `js.txt` |
-| -------------------- | ---------- | ---------- | --------- | -------- |
-| `<clientlib>.es`     | `true`     | `false`    | Yes       | Yes      |
-| `<clientlib>.legacy` | `false`    | `true`     | No        | Yes      |
+| ClientLib Category             | `esModule` | `noModule` | `css.txt` | `js.txt` |
+| ------------------------------ | ---------- | ---------- | --------- | -------- |
+| `<project>.core.footer.es`     | `true`     | `false`    | Yes       | Yes      |
+| `<project>.core.header.es`     | `true`     | `false`    | Yes       | Yes      |
+| `<project>.core.footer.legacy` | `false`    | `true`     | No        | Yes      |
+| `<project>.core.header.legacy` | `false`    | `true`     | No        | Yes      |
 
 There is no real importance to how you name your ClientLibs as the order of how they get output is determined by your template policy.
 
 ## Update your template policy
 
-It is important that in the above example that `<clientlib>.es` is generated first in the page source. To ensure this is the case, make sure your template policy is similar to the below.
+It is important that in the above example that `<project>.core.header.es` is generated first in the page source. To ensure this is the case, make sure your template policy is similar to the below.
 
 ```xml
 <page jcr:primaryType="nt:unstructured">
-  <policy clientlibs="[<clientlib>.es,<clientlib>.legacy]"/>
+  <policy
+    clientlibs="[<project>.core.header.es,<project>.core.footer.es,<project>.core.header.legacy,<project>.core.footer.legacy]"
+    clientlibsJsHead="[<project>.core.header.es,<project>.core.header.legacy]"/>
 </page>
 ```
 
@@ -27,7 +31,7 @@ This will vary from project-to-project, use the above as a guide only.
 
 ## How to test that things work?
 
-Open DevTools in your browser and navigate to the Network tab (or equivalent). Refresh the page and filter by JS files. You should observe ClientLibs loading from `<clientlib>.es` when using a modern browser otherwise `<clientlib>.legacy`.
+Open DevTools in your browser and navigate to the Network tab (or equivalent). Refresh the page and filter by JS files. You should observe ClientLibs loading from `core.header.es` when using a modern browser otherwise `core.header.legacy`.
 
 ## What if I don't want ES modules?
 
