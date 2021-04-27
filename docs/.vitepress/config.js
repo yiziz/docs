@@ -55,7 +55,7 @@ module.exports = {
   themeConfig: {
     logo: 'static/logo.png',
 
-    repo: 'cshawaus/aem-vite',
+    repo: 'aem-vite/aem-vite.dev',
 
     docsDir: 'docs',
     docsBranch: 'docs',

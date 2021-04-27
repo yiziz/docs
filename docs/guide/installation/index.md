@@ -14,7 +14,7 @@ There are currently two methods available to install AEM Vite.
 
 The simple method to get AEM Vite installed is by downloading the latest release from GitHub. Download the `aem-vite.all.zip` file, upload it using the CRXDE package manager and install it.
 
-https://github.com/cshawaus/aem-vite/releases/latest
+https://github.com/aem-vite/aem-vite.dev/releases/latest
 
 ### Using a Maven dependency
 
