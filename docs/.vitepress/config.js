@@ -105,6 +105,8 @@ function getGuideSidebar() {
       text: 'Front End',
       children: [
         { text: 'Preparing your project', link: '/guide/front-end/' },
+        { text: 'Magic Resources', link: '/guide/front-end/magic-resources/' },
+        { text: 'Dynamic Imports', link: '/guide/front-end/dynamic-imports/' },
       ],
     },
     {

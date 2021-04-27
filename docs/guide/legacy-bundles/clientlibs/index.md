@@ -19,10 +19,7 @@ It is important that in the above example that `<clientlib>.es` is generated fir
 
 ```xml
 <page jcr:primaryType="nt:unstructured">
-  <policy
-    clientlibs="[<clientlib>.es,<clientlib>.legacy]"
-    clientlibsJsHead="[]">
-  </policy>
+  <policy clientlibs="[<clientlib>.es,<clientlib>.legacy]"/>
 </page>
 ```
 
