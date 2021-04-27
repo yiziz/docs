@@ -14,4 +14,4 @@ Within `my-clientlib.js` lets assume that a module by the name of `modulea.js` n
 
 What you will see in your browser is a 404 request error for `modulea.js` because the request URI will end up looking something like:
 
-> /etc.clientlibs/project/resourcesmodulea.js
+> /etc.clientlibs/project/resources/modulea.js
