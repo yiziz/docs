@@ -20,7 +20,7 @@ What you will see in your browser is a 404 request error for `modulea.js` becaus
 
 **/etc.clientlibs/project/resources/modulea.js**
 
-## Solving import paths
+## Solving this problem
 
 You might think this is a tough problem to resolve but AEM provides a nice simple solution which only requires us to nest our compiled files into a nested `resources` folder.
 
