@@ -43,6 +43,12 @@ Next, add the following to your [FileVault](https://jackrabbit.apache.org/fileva
 </embedded>
 ```
 
+### Runmode considerations
+
+Consideration should be taken when using AEM Vite as an embedded package. It is recommended that you change the target to `install.local` and have your local development environments use the `local` runmode for example.
+
+Running AEM Vite on non-local environments is possible and makes debugging possible through the use of tools such as ngrok, but is not recommended.
+
 ### Dependencies
 
 The current dependencies are:

@@ -6,3 +6,37 @@
 .logo {
   height: 30px !important;
 }
+
+.action .item {
+  background-color: var(--c-brand-light) !important;
+}
+
+.home-hero,
+.home-hero .description {
+  color: #fff !important;
+}
+
+.home-hero {
+  background: rgb(209, 70, 57);
+  background: linear-gradient(
+    45deg,
+    rgba(209, 70, 57, 1) 0%,
+    rgba(148, 107, 237, 1) 100%
+  );
+  margin: 0 !important;
+  padding: 2.5rem 1.5rem 2.75rem !important;
+}
+
+@media (min-width: 420px) {
+  .home-hero {
+    padding-bottom: 3.5rem !important;
+    padding-top: 3.5rem !important;
+  }
+}
+
+@media (min-width: 720px) {
+  .home-hero {
+    padding-bottom: 4.25rem !important;
+    padding-top: 4rem !important;
+  }
+}

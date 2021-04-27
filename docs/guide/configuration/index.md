@@ -116,3 +116,11 @@ Enable this option is enabled when using React to ensure things work correctly.
   "using.react": false
 }
 ```
+
+## Remote debugging
+
+As mentioned in [runmode considerations](../installation/#runmode-considerations), it is possible to have AEM Vite installed on a non-local environment which opens up the possiblity of remote debugging.
+
+This "feature" is a game-changer for AEM as it provides a simple way of debugging code locally while testing it against a real environment. The simpliest way of achieving this is by using a service such as ngrok to proxy your local Vite DevServer. Within your remote AEM environment, navigate to **/system/console/configMgr** and update the `ViteDevServerConfigImpl` configuration protocol, hostname and port if required to your proxy.
+
+Once setup, visit any page using your configured ClientLibs and you will see your local Vite DevServer being injected.

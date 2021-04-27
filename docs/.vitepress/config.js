@@ -73,6 +73,10 @@ module.exports = {
         text: 'Front End',
         link: '/guide/front-end/',
       },
+      {
+        text: 'Legacy Bundles',
+        link: '/guide/legacy-bundles/',
+      },
     ],
 
     sidebar: {
@@ -105,8 +109,8 @@ function getGuideSidebar() {
       text: 'Front End',
       children: [
         { text: 'Preparing your project', link: '/guide/front-end/' },
-        { text: 'Magic Resources', link: '/guide/front-end/magic-resources/' },
-        { text: 'Dynamic Imports', link: '/guide/front-end/dynamic-imports/' },
+        { text: 'Module imports', link: '/guide/front-end/module-imports/' },
+        { text: 'Dynamic imports', link: '/guide/front-end/dynamic-imports/' },
       ],
     },
     {
