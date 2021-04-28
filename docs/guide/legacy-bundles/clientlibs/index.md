@@ -22,6 +22,8 @@ It is important that in the above example that `<project>.core.header.es` is gen
 ```xml
 <page jcr:primaryType="nt:unstructured">
   <policy
+    jcr:primaryType="nt:unstructured"
+    sling:resourceType="wcm/core/components/policy/policy"
     clientlibs="[<project>.core.header.es,<project>.core.footer.es,<project>.core.header.legacy,<project>.core.footer.legacy]"
     clientlibsJsHead="[<project>.core.header.es,<project>.core.header.legacy]"/>
 </page>
@@ -37,6 +39,6 @@ Open DevTools in your browser and navigate to the Network tab (or equivalent). R
 
 Easy!
 
-Simply have Vite build only legacy bundles by using the [`build.target` config option](https://vitejs.dev/config/#build-target). From the above, simply omit `<clientlib>.es` and ensure your `<clientlib>.legacy` ClientLib contains both a `css.txt` and `js.txt` file.
+Simply have Vite build only legacy bundles by using the [`build.target` config option](https://vitejs.dev/config/#build-target). From the above, simply omit `core.header.es` and `core.footer.es` and ensure your `core.header.legacy` ClientLib contains both a `css.txt` and `js.txt` file.
 
 Both the `esModule` and `noModule` properties won't be required in this case since we are no longer working with an ES module.

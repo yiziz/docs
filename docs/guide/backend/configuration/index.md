@@ -10,7 +10,7 @@ AEM Vite provides a factory configuration which enables multiple different front
 
 Within your projects OSGI configuration folder, create a new file called:
 
-> xyz.cshaw.aem.vite.impl.ViteDevServerConfigImpl-project.cfg.json
+> dev.aem-vite.aem.impl.ViteDevServerConfigImpl-project.cfg.json
 
 Because AEM Vite allows factories, you can create as many projects as you would like and you only need to replace `project` with something unqiue.
 

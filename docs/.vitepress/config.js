@@ -77,6 +77,10 @@ module.exports = {
         text: 'Legacy Bundles',
         link: '/guide/legacy-bundles/',
       },
+      {
+        text: 'FAQs',
+        link: '/guide/faqs/',
+      },
     ],
 
     sidebar: {
@@ -89,19 +93,24 @@ module.exports = {
 function getGuideSidebar() {
   return [
     {
-      text: 'Backend (AEM)',
+      text: 'Guide',
       children: [
         {
           text: 'Overview',
           link: '/guide/',
         },
+      ],
+    },
+    {
+      text: 'Backend (AEM)',
+      children: [
         {
           text: 'Installation',
-          link: '/guide/installation/',
+          link: '/guide/backend/installation/',
         },
         {
           text: 'Configuration',
-          link: '/guide/configuration/',
+          link: '/guide/backend/configuration/',
         },
       ],
     },
@@ -109,7 +118,8 @@ function getGuideSidebar() {
       text: 'Front End',
       children: [
         { text: 'Preparing your project', link: '/guide/front-end/' },
-        { text: 'Optimal Structure', link: '/guide/front-end/structure/' },
+        { text: 'Structure', link: '/guide/front-end/structure/' },
+        { text: 'Vite Configuration', link: '/guide/front-end/vite/' },
         { text: 'Module imports', link: '/guide/front-end/module-imports/' },
         { text: 'Dynamic imports', link: '/guide/front-end/dynamic-imports/' },
       ],
@@ -127,6 +137,10 @@ function getGuideSidebar() {
         { text: 'What are they?', link: '/guide/legacy-bundles/' },
         { text: 'ClientLibs support', link: '/guide/legacy-bundles/clientlibs/' },
       ],
+    },
+    {
+      text: 'FAQs',
+      link: '/guide/faqs/',
     },
   ]
 }

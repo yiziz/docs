@@ -1,5 +1,5 @@
 ---
-title: Optimal Structure
+title: Structure
 ---
 
 # {{ $frontmatter.title }}
@@ -41,13 +41,11 @@ Your template policy(s) will also need to be updated to support this structure. 
 ```xml
 <page jcr:primaryType="nt:unstructured">
   <policy
+    jcr:primaryType="nt:unstructured"
+    sling:resourceType="wcm/core/components/policy/policy"
     clientlibs="[<project>.core.header,<project>.core.footer]"
     clientlibsJsHead="[<project>.core.header]"/>
 </page>
 ```
 
 This configuration works correctly because `<project>.core.footer` doesn't contain a `css.txt` file which avoids the need to create more separation.
-
-## Vite
-
-Similar
