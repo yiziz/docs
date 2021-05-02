@@ -5,6 +5,7 @@ install:
   - yarn install
 script:
   - yarn docs:build
+  - cp CNAME docs/.vitepress/dist/
 deploy:
   provider: pages
   skip_cleanup: true
