@@ -58,9 +58,9 @@ module.exports = {
     repo: 'aem-vite/aem-vite',
 
     docsDir: 'docs',
-    docsBranch: 'docs',
+    docsBranch: 'main',
 
-    editLinks: true,
+    editLinks: false,
     editLinkText: 'Edit this page on GitHub',
     lastUpdated: false,
 
