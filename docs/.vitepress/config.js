@@ -67,7 +67,7 @@ module.exports = {
     nav: [
       {
         text: 'Installation',
-        link: '/guide/installation/',
+        link: '/guide/backend/installation/',
       },
       {
         text: 'Front End',
