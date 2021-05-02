@@ -26,7 +26,7 @@ Add the `aem-vite.all` package as a Maven dependency in your apps `pom.xml` file
 
 ```xml
 <dependency>
-  <groupId>dev.aem-vite</groupId>
+  <groupId>dev.aemvite</groupId>
   <artifactId>aem-vite.all</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 </dependency>
@@ -36,7 +36,7 @@ Next, add the following to your [FileVault](https://jackrabbit.apache.org/fileva
 
 ```xml
 <embedded>
-  <groupId>dev.aem-vite</groupId>
+  <groupId>dev.aemvite</groupId>
   <artifactId>aem-vite.all</artifactId>
   <type>zip</type>
   <target>/apps/${appId}-packages/application/install</target>

@@ -47,5 +47,3 @@ Your template policy(s) will also need to be updated to support this structure. 
     clientlibsJsHead="[<project>.core.header]"/>
 </page>
 ```
-
-This configuration works correctly because `<project>.core.footer` doesn't contain a `css.txt` file which avoids the need to create more separation.

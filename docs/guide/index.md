@@ -16,7 +16,7 @@ Through pure magic :star2:!
 
 Seriously though, AEM Vite uses a Sling request filter that:
 
-- Automatically identifies if a request matches the [OSGI configuration](./configuration/)
+- Automatically identifies if a request matches the [OSGI configuration](./backend/configuration/)
 - Detects when the Vite DevServer is running
 - Finds and strips away your desired AEM ClientLibs
 - Injects the Vite client scripts :100:

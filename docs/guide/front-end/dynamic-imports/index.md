@@ -29,7 +29,6 @@ export default defineConfig(({ command }) => ({
     aemViteImportRewriter({
       command,
       publicPath: '/etc.clientlibs/<project>/clientlibs/core.footer/resources/',
-      sourcemap: true,
     }),
   ],
 }));
@@ -37,11 +36,10 @@ export default defineConfig(({ command }) => ({
 
 ### Properties
 
-| Property Name                                                                                                    | Type      | Required | Default |
-| :--------------------------------------------------------------------------------------------------------------- | --------- | -------- | ------- |
-| **command**<br><small>The type of build Vite is currently executing. This can be: **serve** or **build**</small> | `string`  | Yes      | -       |
-| **publicPath**<br><small>The AEM proxy path to your ClientLibs directory</small>                                 | `string`  | Yes      | -       |
-| **sourcemap**<br><small>Whether a new sourcemap should be generated after the rewrite.</small>                   | `boolean` | No       | `false` |
+| Property Name                                                                                                    | Type     | Required |
+| :--------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| **command**<br><small>The type of build Vite is currently executing. This can be: **serve** or **build**</small> | `string` | Yes      |
+| **publicPath**<br><small>The AEM proxy path to your ClientLibs directory</small>                                 | `string` | Yes      |
 
 ## How this works
 
