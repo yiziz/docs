@@ -53,7 +53,7 @@ Running AEM Vite on non-local environments is possible and makes debugging possi
 
 The current dependencies are:
 
-- ACS Commons 4.6.0 or greater
+- ACS Commons 4.11.0 or greater
 
 This may change in the near future to provide compatibility to projects that don't rely on the aforementioned dependencies.
 
