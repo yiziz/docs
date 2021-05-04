@@ -151,13 +151,13 @@ function getGuideSidebar() {
         { text: 'Dynamic imports', link: '/guide/front-end/dynamic-imports/' },
       ],
     },
-    {
-      text: 'Extending AEM Vite',
-      children: [
-        { text: 'Why extend AEM Vite?', link: '/guide/extending/why/' },
-        { text: 'Super-powered ClientLibs', link: '/guide/extending/clientlibs/' },
-      ],
-    },
+    // {
+    //   text: 'Extending AEM Vite',
+    //   children: [
+    //     { text: 'Why extend AEM Vite?', link: '/guide/extending/why/' },
+    //     { text: 'Super-powered ClientLibs', link: '/guide/extending/clientlibs/' },
+    //   ],
+    // },
     {
       text: 'Legacy Bundles',
       children: [
