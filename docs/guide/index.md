@@ -12,14 +12,14 @@ AEM Vite uses [Vite](https://vitejs.dev), if you didn't catch that already, whic
 
 ## How does it work?
 
-Through pure magic :star2:!
+Through pure magic 🪄!
 
 Seriously though, AEM Vite uses a Sling request filter that:
 
 - Automatically identifies if a request matches the [OSGI configuration](./backend/configuration/)
 - Detects when the Vite DevServer is running
 - Finds and strips away your desired AEM ClientLibs
-- Injects the Vite client scripts :100:
+- Injects the Vite client scripts 💯
 
 All of this happens in real-time and is 100% transparent. This means less time deploying front end code and more time developing.
 
