@@ -1,7 +1,10 @@
+const title = 'AEM Vite'
+const description = 'AEM Vite is a plugin for AEM that enables transparent support for the Vite DevServer.'
+
 module.exports = {
   base: '/',
-  title: 'AEM Vite',
-  description: 'AEM Vite is a plugin for AEM that enables transparent support for the Vite DevServer.',
+  title,
+  description,
 
   head: [
     ['link', {
@@ -49,6 +52,30 @@ module.exports = {
     ['meta', {
       name: 'theme-color',
       content: '#ffffff',
+    }],
+    ['meta', {
+      property: 'og:title',
+      content: title,
+    }],
+    ['meta', {
+      property: 'og:description',
+      content: description,
+    }],
+    ['meta', {
+      property: 'og:image',
+      content: '/static/social/og-primary.jpg',
+    }],
+    ['meta', {
+      name: 'twitter:title',
+      content: title,
+    }],
+    ['meta', {
+      property: 'twitter:description',
+      content: description,
+    }],
+    ['meta', {
+      property: 'twitter:site',
+      content: '@cshawaus',
     }],
   ],
 
