@@ -46,7 +46,7 @@ See [module imports](../module-imports/) which explains the reasoning behind the
 
 ### Specific build modes
 
-By default Vite runs its DevServer in **development** mode but builds always run in **production** which is fine for non-AEM projects but AEM needs more control. The above configuration enables us to do things like the below.
+By default Vite runs its DevServer in **development** mode, but standard builds always run in **production** which is fine for non-AEM projects whereas AEM needs more control. The above configuration enables us to do things like the below.
 
 ```shell
 vite build --mode development
@@ -54,7 +54,7 @@ vite build --mode development
 vite build --mode production
 ```
 
-Now that you can build both development and production bundles, you can toggle between having features such as sourcemaps and console logging if you don't wish to test code outside of Vite's DevServer.
+Now that you can build both development and production bundles, you can toggle between having features such as sourcemaps and console logging if you wish to test code outside of Vite's DevServer.
 
 ## Source structure
 
