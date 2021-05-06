@@ -91,6 +91,11 @@ module.exports = {
     editLinkText: 'Edit this page on GitHub',
     lastUpdated: false,
 
+    algolia: {
+      apiKey: '0479a3a9031b5947143a70dc4969da0d',
+      indexName: 'aemvite',
+    },
+
     nav: [
       {
         text: 'Installation',
