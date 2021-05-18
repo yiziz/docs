@@ -6,6 +6,8 @@ title: Dynamic Imports
 
 Vite uses rollup under the hood which supports dynamic imports just like webpack and other bundlers but it has a small _flaw_. Well, not so much a flaw but rather a consideration that was never put to thought simply because of how AEM ClientLibs work.
 
+The import rewriter takes the ES module import paths and converts them into AEM friendly paths automatically.
+
 ## Rollup plugin
 
 AEM Vite provides a rollup plugin that will rewrite dynamic import paths to your `/etc.clientlibs` proxy path.
@@ -28,7 +30,7 @@ export default defineConfig(({ command }) => ({
     // ... all other plugins before, 'aemViteImportRewriter' must be last
     aemViteImportRewriter({
       command,
-      publicPath: '/etc.clientlibs/<project>/clientlibs/core.footer/resources/',
+      publicPath: '/etc.clientlibs/<project>/clientlibs/',
     }),
   ],
 }));
