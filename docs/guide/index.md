@@ -8,7 +8,7 @@ title: Overview
 
 AEM Vite – also referred to as Vite for AEM – is a powerful plugin that enables a simple and modern development experience when working without needing to spend hours messing around in configuration files.
 
-AEM Vite uses [Vite](https://vitejs.dev), if you didn't catch that already, which provdes one of the fastest build experiences and will make your AEM development journey all the more easier.
+AEM Vite uses [Vite](https://vitejs.dev), if you didn't catch that already, which provides one of the fastest build experiences and will make your AEM development journey all the more easier.
 
 ## How does it work?
 
