@@ -174,5 +174,9 @@ function getGuideSidebar() {
       text: 'FAQs',
       link: '/guide/faqs/',
     },
+    {
+      text: 'Migrate to v2.x',
+      link: '/guide/migrate-to-v2/',
+    },
   ]
 }
