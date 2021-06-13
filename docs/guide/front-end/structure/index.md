@@ -34,20 +34,6 @@ Here is how each ClientLib would be configured.
 | `<project>.core.header` | `true`     | `true`   | Yes     | Yes    |
 | `<project>.core.footer` | `true`     | `true`   | No      | Yes    |
 
-### js.txt handling
-
-::: warning
-v2.x and newer use a different method of generating the ClientLib path. Please read the below carefully to fully understand this change.
-:::
-
-To ensure circular imports don't cause issues when your code is bundled, AEM Vite now uses the `js.txt` file to resolve the ClientLib path. For example:
-
-```
-resources/js/app.js
-```
-
-Keep in mind that the path you add to `js.txt` needs to be your entry file. At this time multiple entry points are not supported but may be in the future.
-
 ## Template policy(s)
 
 Your template policy(s) will also need to be updated to support this structure. The below is an example of how to achieve this.

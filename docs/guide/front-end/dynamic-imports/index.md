@@ -40,11 +40,24 @@ export default defineConfig(({ command }) => ({
 
 | Property Name                                                                                                    | Type     | Required |
 | :--------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| **caching**<br><small>Instruct import rewriter how to handle AEM caching</small>                                 | `object` | No       |
 | **command**<br><small>The type of build Vite is currently executing. This can be: **serve** or **build**</small> | `string` | Yes      |
 | **publicPath**<br><small>The AEM proxy path to your ClientLibs directory</small>                                 | `string` | Yes      |
+
+#### Caching
+
+| Property Name                                                                   | Type      | Required | Default    |
+| :------------------------------------------------------------------------------ | --------- | -------- | ---------- |
+| **enabled**<br><small>Should caching support be utilised during builds?</small> | `boolean` | Yes      | -          |
+| **keyFormat**<br><small>Long term cache key format</small>                      | `boolean` | Yes      | `lc-%s-lc` |
+| **minification**<br><small>Should `.min` be added to the import path?</small>   | `boolean` | No       | `false`    |
 
 ## How this works
 
 Under the hood `es-module-lexer` is used to parse the rollup chunk source and identifies all of the `import` statements. Once identified, they are parsed and all instances that use path patterns such as `./` or `../` will get replaced with `publicPath` configured in your plugin configuration.
 
 By rewriting the imports we solve another issue and that is we prevent Vite adding duplicate imports via its dynamic import polyfill transformer.
+
+### Circular imports
+
+In addition to handling import paths, the main entry path is also rewritten to the correct AEM ClientLib path to ensure ES module imports behave correctly in AEM.
