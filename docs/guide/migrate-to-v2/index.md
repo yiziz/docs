@@ -4,7 +4,7 @@ title: Migrate to v2.x
 
 # {{ $frontmatter.title }}
 
-The v2.x releases and above now brings full support for circular imports along with cache support in ClientLib paths.
+The v2.x releases and above now brings full support for circular imports along with cache support in ClientLib paths. To get the most out of AEM Vite, ensure you update your POM version to `2.0.3` or greater and `@aem-vite/import-rewriter` to `2.0.0` or greater.
 
 ## Circular imports
 
