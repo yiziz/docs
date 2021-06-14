@@ -94,7 +94,7 @@ A list of entry points to inject onto the page.
 
 ### Using React?
 
-Enable this option is enabled when using React to ensure things work correctly.
+Enable this option is enabled when using React to ensure things work correctly. Ensure you install the `@vitejs/plugin-react-refresh` Vite plugin too which ensures HMR works correctly.
 
 **Key:** `using.react`<br>
 **Type:** `Boolean`<br>

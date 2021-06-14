@@ -113,6 +113,10 @@ module.exports = {
         text: 'FAQs',
         link: '/guide/faqs/',
       },
+      {
+        text: 'Changelog',
+        link: 'https://github.com/aem-vite/aem-vite/blob/main/CHANGELOG.md',
+      },
     ],
 
     sidebar: {
