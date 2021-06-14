@@ -38,18 +38,19 @@ export default defineConfig(({ command }) => ({
 
 ### Properties
 
-| Property Name                                                                                                    | Type     | Required |
-| :--------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| **caching**<br><small>Instruct import rewriter how to handle AEM caching</small>                                 | `object` | No       |
-| **command**<br><small>The type of build Vite is currently executing. This can be: **serve** or **build**</small> | `string` | Yes      |
-| **publicPath**<br><small>The AEM proxy path to your ClientLibs directory</small>                                 | `string` | Yes      |
+| Property Name                                                                                                                      | Type     | Required |
+| :--------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| **caching**<br><small>Instruct import rewriter how to handle AEM caching.</small>                                                  | `object` | No       |
+| **command**<br><small>The type of build Vite is currently executing. This can be: **serve** or **build**.</small>                  | `string` | Yes      |
+| **mainEntryPath**<br><small>Custom entry path for your Vite configuration. This is automatically identified in most cases.</small> | `string` | No       |
+| **publicPath**<br><small>The AEM proxy path to your ClientLibs directory.</small>                                                  | `string` | Yes      |
 
 #### Caching
 
 | Property Name                                                                   | Type      | Required | Default    |
 | :------------------------------------------------------------------------------ | --------- | -------- | ---------- |
 | **enabled**<br><small>Should caching support be utilised during builds?</small> | `boolean` | Yes      | -          |
-| **keyFormat**<br><small>Long term cache key format</small>                      | `boolean` | Yes      | `lc-%s-lc` |
+| **keyFormat**<br><small>Long term cache key format.</small>                     | `string`  | No       | `lc-%s-lc` |
 | **minification**<br><small>Should `.min` be added to the import path?</small>   | `boolean` | No       | `false`    |
 
 ## How this works

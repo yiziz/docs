@@ -96,3 +96,38 @@ export default defineConfig(() => ({
   },
 }));
 ```
+
+## Static assets
+
+Vite supports static assets without any configuration which works for external projects, but not AEM. To ensure static assets are served correctly in AEM you can use a configuration like the below.
+
+```js
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/etc.clientlibs/<project>/clientlibs/' : '/',
+
+  build: {
+    assetsDir: '<project>.header/resources/assets',
+  },
+}));
+```
+
+What this does is:
+
+1. Sets the base url for assets to `/etc.clientlibs/<project>/clientlibs/` when running `build`, not `serve`
+2. Ensures assets get saved the header ClientLib `resources` folder when running builds
+
+### Known issues
+
+At this current time, unless you inline your assets Vite will attempt to serve them from `/` when using the DevServer. This is related to issue [#3107](https://github.com/vitejs/vite/issues/3107) on GitHub. For now, you can set a custom `BUILD_URL` environment variable via Vite's `define` configuration.
+
+```js
+export default defineConfig(({ command }) => ({
+  define: {
+    BASE_URL: JSON.stringify(
+      command === 'serve' ? 'http://localhost:3000/' : '',
+    ),
+  },
+}));
+```
+
+Within your code you can then reference `BASE_URL` rather than `import.meta.env.BASE_URL` which currently always returns `/` instead of our configured path.
