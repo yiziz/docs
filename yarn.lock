@@ -193,6 +193,30 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.15.tgz#6a9d143f7f4f49db2d782f9e1c8839a29b43ae23"
   integrity sha512-15spi3V28QdevleWBNXE4pIls3nFZmBbUGrW9IVPwiQczuSb9n76TCB4bsk8TSel+I1OkHEdPhu5QKMfY6rQHA==
 
+"@types/highlight.js@^9.7.0":
+  version "9.12.4"
+  resolved "https://registry.yarnpkg.com/@types/highlight.js/-/highlight.js-9.12.4.tgz#8c3496bd1b50cc04aeefd691140aa571d4dbfa34"
+  integrity sha512-t2szdkwmg2JJyuCM20e8kR2X59WCE5Zkl4bzm1u1Oukjm79zpbiAv+QjnwLnuuV0WHEcX2NgUItu0pAMKuOPww==
+
+"@types/linkify-it@*":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@types/linkify-it/-/linkify-it-3.0.2.tgz#fd2cd2edbaa7eaac7e7f3c1748b52a19143846c9"
+  integrity sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==
+
+"@types/markdown-it@^12.0.1":
+  version "12.0.3"
+  resolved "https://registry.yarnpkg.com/@types/markdown-it/-/markdown-it-12.0.3.tgz#60a09363bebbd780fac815442b47d80f1a17bef1"
+  integrity sha512-MIhDl8e64vKJv3GX8irH5I/cNarX18edtdfg/+lbS92mArVl5VeaL4WKf8i06Zt2vsNuze2Vc8ELqrjoWO6hDQ==
+  dependencies:
+    "@types/highlight.js" "^9.7.0"
+    "@types/linkify-it" "*"
+    "@types/mdurl" "*"
+
+"@types/mdurl@*":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@types/mdurl/-/mdurl-1.0.2.tgz#e2ce9d83a613bacf284c7be7d491945e39e1f8e9"
+  integrity sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==
+
 "@vitejs/plugin-vue@^1.2.3":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-1.2.3.tgz#2e8e008b1cc3a6ad1dfbec75743c7ffd9b4872a6"
@@ -1254,13 +1278,14 @@ vite@^2.3.7:
   optionalDependencies:
     fsevents "~2.3.1"
 
-vitepress@^0.14.1:
-  version "0.14.1"
-  resolved "https://registry.yarnpkg.com/vitepress/-/vitepress-0.14.1.tgz#0f431d3070b9a18938985be8078f27faf90ed5c6"
-  integrity sha512-cGsDULwKvKljtDNm4uy8zDYoM3gBRxr75R8+buzeyWnpXEqIwWICl0P2AHwLm2Dbs7cVy8lAREOrcUsShDzPuA==
+vitepress@^0.15.6:
+  version "0.15.6"
+  resolved "https://registry.yarnpkg.com/vitepress/-/vitepress-0.15.6.tgz#b3d2487384f60deb5e0be7da1f1896c1db75025e"
+  integrity sha512-+knoqxT6V3DAAP6ojXmwsbplqjPvf256xFJfAJdzu4WArJSXGoserPIhtLK7fOFKPQrcb8S6H9RpIshY31/hLg==
   dependencies:
     "@docsearch/css" "^1.0.0-alpha.28"
     "@docsearch/js" "^1.0.0-alpha.28"
+    "@types/markdown-it" "^12.0.1"
     "@vitejs/plugin-vue" "^1.2.3"
     "@vue/compiler-sfc" "^3.1.1"
     "@vue/server-renderer" "^3.1.1"

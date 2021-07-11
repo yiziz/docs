@@ -148,6 +148,10 @@ function getGuideSidebar() {
           text: 'Configuration',
           link: '/guide/backend/configuration/',
         },
+        {
+          text: 'Permissions',
+          link: '/guide/backend/permissions/',
+        },
       ],
     },
     {
