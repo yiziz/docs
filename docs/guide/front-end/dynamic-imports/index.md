@@ -20,18 +20,26 @@ yarn add -D @aem-vite/import-rewriter
 
 ## Configuration
 
-Getting this plugin configured is really simple, all it requires is the current Vite command and your public path.
+Getting this plugin configured is really simple, all it requires is your ClientLib public path.
 
-```js{1,6-10}
+::: warning 'command' no longer exists
+As of v3.0.0, the `command` option no longer exists in favour of using Vite's `apply` property which bring a slight performance gain with it.
+:::
+
+```js{1,6-13}
 import aemViteImportRewriter from '@aem-vite/import-rewriter';
 
-export default defineConfig(({ command }) => ({
+export default defineConfig(() => ({
   plugins: [
     // ... all other plugins before, 'aemViteImportRewriter' must be last
-    aemViteImportRewriter({
-      command,
-      publicPath: '/etc.clientlibs/<project>/clientlibs/',
-    }),
+    {
+      ...aemViteImportRewriter({
+        publicPath: '/etc.clientlibs/<project>/clientlibs/',
+      }),
+
+      apply: 'build',
+      enforce: 'pre',
+    },
   ],
 }));
 ```
@@ -41,7 +49,6 @@ export default defineConfig(({ command }) => ({
 | Property Name                                                                                                                      | Type     | Required |
 | :--------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | **caching**<br><small>Instruct import rewriter how to handle AEM caching.</small>                                                  | `object` | No       |
-| **command**<br><small>The type of build Vite is currently executing. This can be: **serve** or **build**.</small>                  | `string` | Yes      |
 | **mainEntryPath**<br><small>Custom entry path for your Vite configuration. This is automatically identified in most cases.</small> | `string` | No       |
 | **publicPath**<br><small>The AEM proxy path to your ClientLibs directory.</small>                                                  | `string` | Yes      |
 

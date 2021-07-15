@@ -162,6 +162,7 @@ function getGuideSidebar() {
         { text: 'Vite Configuration', link: '/guide/front-end/vite/' },
         { text: 'Module imports', link: '/guide/front-end/module-imports/' },
         { text: 'Dynamic imports', link: '/guide/front-end/dynamic-imports/' },
+        { text: 'Static assets', link: '/guide/front-end/static-assets/' },
       ],
     },
     // {
