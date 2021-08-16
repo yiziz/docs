@@ -43,7 +43,7 @@ export default defineConfig(({ command }) => ({
 ```
 
 ::: warning Why does 'publicPath' use different paths?
-As mentioned, Vite will serve assets from `/`. The import rewriter will use the path you provide to ensure assets from served from the correct location.
+As mentioned, Vite will serve assets from `/`. The import rewriter will use the path you provide to ensure assets are served from the correct location.
 :::
 
 ### Properties
