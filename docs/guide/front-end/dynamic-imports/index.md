@@ -23,7 +23,7 @@ yarn add -D @aem-vite/import-rewriter
 Getting this plugin configured is really simple, all it requires is your ClientLib public path.
 
 ::: warning 'command' no longer exists
-As of v3.0.0, the `command` option no longer exists in favour of using Vite's `apply` property which bring a slight performance gain with it.
+As of v3.0.0, the `command` option no longer exists in favour of using Vite's `apply` property which brings a slight performance gain with it.
 :::
 
 ```js{1,6-13}

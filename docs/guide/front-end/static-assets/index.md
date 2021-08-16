@@ -22,7 +22,7 @@ yarn add -D @aem-vite/import-rewriter
 
 Getting this plugin configured is really simple, all it requires is the local assets path and your ClientLib public path.
 
-As can be seen below, `publicPath` checks the Vite `command` that was executed and applies either the Vite DevServer URL or the AEM CLientLib public path. This is important as when using the DevServer, a clear distintion is needed to ensure Vite is serving assets rather than AEM.
+As can be seen below, `publicPath` checks the Vite `command` that was executed and applies either the Vite DevServer URL or the AEM ClientLib public path. This is important as when using the DevServer, a clear distintion is needed to ensure Vite is serving assets rather than AEM.
 
 ```js{1,6-13}
 import { aemViteCSSImportRewriter } from '@aem-vite/import-rewriter';
@@ -41,6 +41,10 @@ export default defineConfig(({ command }) => ({
   ],
 }));
 ```
+
+::: warning Why does 'publicPath' use different paths?
+As mentioned, Vite will serve assets from `/`. The import rewriter will use the path you provide to ensure assets from served from the correct location.
+:::
 
 ### Properties
 
