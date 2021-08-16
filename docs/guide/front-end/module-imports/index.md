@@ -8,23 +8,15 @@ An ES module import is a `import` statement that intructs your browser to automa
 
 ## The problem
 
-Due to the way Vite generates outputs, `import` statements will become relative which in the context of AEM won't work. Lets say that we have a ClientLib located at:
+Due to the way Vite generates outputs, `import` statements will become relative which in the context of AEM won't work. Lets say that we have a ClientLib located at: **/etc.clientlibs/&lt;project>/core.footer.js**
 
-**/etc.clientlibs/&lt;project>/core.footer.js**
+Within `my-clientlib.js` lets assume that a module by the name of `modulea.js` needs to be imported by is been requested using: **../../resources/modulea.js**
 
-Within `my-clientlib.js` lets assume that a module by the name of `modulea.js` needs to be imported by is been requested using:
-
-**../../resources/modulea.js**
-
-What you will see in your browser is a 404 request error for `modulea.js` because the request URI will end up looking something like:
-
-**/etc.clientlibs/&lt;project>/resources/modulea.js**
+What you will see in your browser is a 404 request error for `modulea.js` because the request URI will end up looking something like: **/etc.clientlibs/&lt;project>/resources/modulea.js**
 
 ## Solving this problem
 
-You might think this is a tough problem to resolve but AEM provides a nice simple solution which only requires us to nest our compiled files into a nested `resources` folder.
-
-For some background, AEM 6.4 and newer don't respond to requests via the `/etc.clientlibs` proxy unless the requested resource resides within a `resources` folder.
+You might think this is a tough problem to resolve but AEM provides a nice simple solution which only requires us to nest our compiled files into a nested `resources` folder. For some background, AEM 6.4 and newer don't respond to requests via the `/etc.clientlibs` proxy unless the requested resource resides within a `resources` folder.
 
 ### Example Vite configuration
 

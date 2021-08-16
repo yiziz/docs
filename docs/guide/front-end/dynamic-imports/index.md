@@ -72,11 +72,11 @@ In addition to handling import paths, the main entry path is also rewritten to t
 
 ## Caching and minification
 
-So your code doesn't use the wrong path when in a testing, staging or production environment, it is good practice to dynamically switch on minification for AEM Vite using an environment variable via your Maven `pom.xml` file. The below showcases this using Adobe Cloud Manager as an example by looking for a `CM_BUILD` environment variable and setting a Maven property called `aem.caching`.
+So your code doesn't use the wrong path when in a testing, staging or production environment, it is good practice to dynamically switch on minification for AEM Vite using an environment variable via your Maven `pom.xml` file.
 
-This Maven property can then be passed onto `frontend-maven-plugin` which can subsequently be passed onto your Vite configuration.
+The below showcases this using Adobe Cloud Manager as an example by looking for a `CM_BUILD` environment variable and setting a Maven property called `aem.caching`. This Maven property can then be passed onto `frontend-maven-plugin` which can subsequently be passed onto your Vite configuration.
 
-::: info A note about the 'arguments' property
+::: info A note about the &lt;arguments> property
 This property assumes you already have an npm script called `build` in your `package.json` file.
 :::
 
@@ -125,6 +125,8 @@ This property assumes you already have an npm script called `build` in your `pac
 </profiles>
 ```
 
+### Setting the Vite configuration
+
 From there, you can update your Vite configuration to look for `AEM_CACHING` and then enable caching and minification. An assumption is made that caching and minification are both enabled, if you need separation, add another Maven profile to set another property/environment variable.
 
 ```js{3,12-14}
@@ -132,7 +134,7 @@ import aemViteImportRewriter from '@aem-vite/import-rewriter';
 
 const needsCaching = process.env.AEM_CACHING === 'true';
 
-export default defineConfig(() => ({
+export default defineConfig(({ command, mode }) => ({
   plugins: [
     // ... all other plugins before, 'aemViteImportRewriter' must be last
     {

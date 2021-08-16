@@ -1,5 +1,5 @@
 const title = 'AEM Vite'
-const description = 'AEM Vite is a plugin for AEM that enables transparent support for the Vite DevServer.'
+const description = 'AEM Vite brings the amazing Vite ecosystem to AEM in a transparent and friendly way.'
 
 module.exports = {
   base: '/',

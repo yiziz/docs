@@ -3,11 +3,11 @@ home: true
 heroImage: /static/logo-outlined.png
 heroAlt: AEM Vite logo
 heroText: Vite for AEM
-tagline: Next Generation Front End Tooling, but for AEM!
+tagline: Next Generation Front End Tooling made simple for AEM!
 actionText: Get Started
 actionLink: /guide/
 features:
-  - title: 🔎 Transparent
+  - title: 🔎 Transparency
     details: AEM Vite becomes a background superhero that magically switches things around for you.
 
   - title: ⚡️ Vite-Powered

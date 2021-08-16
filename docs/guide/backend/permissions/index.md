@@ -4,7 +4,7 @@ title: Permissions
 
 # {{ $frontmatter.title }}
 
-Prior to AEM Vite v2.1.0, the `type` attribute that defined the script as a module was not set due to AEM Vite not having permission to read the ClientLib properties. To ensure things have the correct behaviour, you are required to make your ClientLibs authorizable.
+Ensuring the `type="module"` attribute is set for ClientLibs is import for AEM Vite to work. AEM Vite provide an authorizable user (`aem-vite-clientlibs`) that you will need to apply via a `rep:policy`.
 
 ## Access control
 
