@@ -14,7 +14,7 @@ Add the `aem-vite.all` package as a Maven dependency in your apps `pom.xml` file
 <dependency>
   <groupId>dev.aemvite</groupId>
   <artifactId>aem-vite.all</artifactId>
-  <version>2.1.3</version>
+  <version>2.2.0</version>
 </dependency>
 ```
 
@@ -35,11 +35,7 @@ This will typically be added to your **all** module or **ui.apps** if you don't 
 
 ### Dependencies
 
-The current dependencies are:
-
-- ACS Commons 4.11.0 or greater
-
-This may change in the near future to provide compatibility to projects that don't rely on the aforementioned dependencies.
+AEM Vite doesn't rely on any 3rd-party dependencies and only makes use of API's available in the AEM Uber JAR and Cloud SDK.
 
 ## Configure ClientLibs
 
