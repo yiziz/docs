@@ -24,20 +24,16 @@ Getting this plugin configured is really simple, all it requires is the local as
 
 As can be seen below, `publicPath` checks the Vite `command` that was executed and applies either the Vite DevServer URL or the AEM ClientLib public path. This is important as when using the DevServer, a clear distintion is needed to ensure Vite is serving assets rather than AEM.
 
-```js{1,6-13}
-import { aemViteCSSImportRewriter } from '@aem-vite/import-rewriter';
+```js{1,6-9}
+import { cssImportRewriter } from '@aem-vite/import-rewriter';
 
 export default defineConfig(({ command }) => ({
   plugins: [
-    // ... all other plugins before, 'aemViteCSSImportRewriter' must be last
-    {
-      ...aemViteCSSImportRewriter({
-        assetsBasePath: '/src/assets',
-        publicPath: command === 'serve' ? 'http://localhost:3000/assets' : '/etc.clientlibs/<project>/clientlibs/',
-      }),
-
-      enforce: 'post',
-    },
+    // ... all other plugins before, 'cssImportRewriter' must be last
+    cssImportRewriter({
+      assetsBasePath: '/src/assets',
+      publicPath: command === 'serve' ? 'http://localhost:3000/assets' : '/etc.clientlibs/<project>/clientlibs/',
+    }),
   ],
 }));
 ```
@@ -55,6 +51,6 @@ As mentioned, Vite will serve assets from `/`. The import rewriter will use the 
 
 ## How this works
 
-Nothing too complex is going on here, `aemViteCSSImportRewriter` will simply find and replace all instances of the `assetsBasePath` with the provided `publicPath`. This process is extremely quick and occurs during Rollup's `transform` stage which is just before the file is written.
+Nothing too complex is going on here, `cssImportRewriter` will simply find and replace all instances of the `assetsBasePath` with the provided `publicPath`. This process is extremely quick and occurs during Rollup's `transform` stage which is just before the file is written.
 
 After that, it is all pure magic!

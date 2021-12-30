@@ -16,12 +16,15 @@ What you can see is the same output structures being used align to the [structur
 - Disables the `manifest.json` file
 - Disables minification when running in **development** mode
 - Disables sourcemaps when not using the Vite DevServer
+- Prefer `terser` over `esbuild` for minification
 
 ```js
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig(({ command, mode }) => ({
+  base: command === 'build' ? '/etc.clientlibs/<project>/clientlibs/' : '/',
+
   build: {
     brotliSize: false,
     manifest: false,
@@ -43,6 +46,10 @@ export default defineConfig(({ command, mode }) => ({
 ```
 
 See [module imports](../module-imports/) which explains the reasoning behind the rollup `output` structure.
+
+### Base path
+
+A `base` path is required to support static assets and dynamic imports as it will ensure that certain files are loaded from the correct AEM path.
 
 ### Specific build modes
 

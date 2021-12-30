@@ -22,24 +22,15 @@ yarn add -D @aem-vite/import-rewriter
 
 Getting this plugin configured is really simple, all it requires is your ClientLib public path.
 
-::: warning 'command' no longer exists
-As of v3.0.0, the `command` option no longer exists in favour of using Vite's `apply` property which brings a slight performance gain with it.
-:::
-
-```js{1,6-13}
-import aemViteImportRewriter from '@aem-vite/import-rewriter';
+```js{1,6-8}
+import { bundlesImportRewriter } from '@aem-vite/import-rewriter';
 
 export default defineConfig(() => ({
   plugins: [
-    // ... all other plugins before, 'aemViteImportRewriter' must be last
-    {
-      ...aemViteImportRewriter({
-        publicPath: '/etc.clientlibs/<project>/clientlibs/',
-      }),
-
-      apply: 'build',
-      enforce: 'pre',
-    },
+    // ... all other plugins before, 'bundlesImportRewriter' must be last
+    bundlesImportRewriter({
+      publicPath: '/etc.clientlibs/<project>/clientlibs/',
+    }),
   ],
 }));
 ```
@@ -129,27 +120,22 @@ This property assumes you already have an npm script called `build` in your `pac
 
 From there, you can update your Vite configuration to look for `AEM_CACHING` and then enable caching and minification. An assumption is made that caching and minification are both enabled, if you need separation, add another Maven profile to set another property/environment variable.
 
-```js{3,12-14}
-import aemViteImportRewriter from '@aem-vite/import-rewriter';
+```js{3,11-14}
+import { bundlesImportRewriter } from '@aem-vite/import-rewriter';
 
 const needsCaching = process.env.AEM_CACHING === 'true';
 
 export default defineConfig(({ command, mode }) => ({
   plugins: [
-    // ... all other plugins before, 'aemViteImportRewriter' must be last
-    {
-      ...aemViteImportRewriter({
-        publicPath: '/etc.clientlibs/<project>/clientlibs/',
+    // ... all other plugins before, 'bundlesImportRewriter' must be last
+    bundlesImportRewriter({
+      publicPath: '/etc.clientlibs/<project>/clientlibs/',
 
-        caching: {
-          enabled: command === 'build' && mode === 'production' && needsCaching,
-          minification: needsCaching,
-        },
-      }),
-
-      apply: 'build',
-      enforce: 'pre',
-    },
+      caching: {
+        enabled: command === 'build' && mode === 'production' && needsCaching,
+        minification: needsCaching,
+      },
+    }),
   ],
 }));
 ```
