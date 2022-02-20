@@ -46,7 +46,7 @@ A list of content paths where injection should occur.
 
 A custom selector to use when automatic injection is disabled. You can enable AEM Vite by adding your custom selector to the content URL. E.g.
 
-> http://localhost:4502/content/project/mypage.vite.html
+> /content/project/mypage.vite.html
 
 **Key:** `manual.injection.selector`<br>
 **Type:** `String`<br>
@@ -102,7 +102,7 @@ Enable this option is enabled when using React to ensure things work correctly. 
 
 ## Example configuration
 
-```tson
+```json
 {
   "automatic.injection": true,
   "clientlib.categories": ["<project>.base"],
