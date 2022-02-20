@@ -160,7 +160,7 @@ function getGuideSidebar() {
         { text: 'Preparing your project', link: '/guide/front-end/' },
         { text: 'Structure', link: '/guide/front-end/structure/' },
         { text: 'Vite Configuration', link: '/guide/front-end/vite/' },
-        { text: 'Vite Plugin', link: '/guide/front-end/vite-plugin/' },
+        // { text: 'Vite Plugin', link: '/guide/front-end/vite-plugin/' },
         { text: 'Module Imports', link: '/guide/front-end/module-imports/' },
         { text: 'Dynamic Imports', link: '/guide/front-end/dynamic-imports/' },
         { text: 'Static Assets', link: '/guide/front-end/static-assets/' },
