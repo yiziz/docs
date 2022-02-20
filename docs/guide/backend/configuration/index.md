@@ -102,7 +102,7 @@ Enable this option is enabled when using React to ensure things work correctly. 
 
 ## Example configuration
 
-```json
+```tson
 {
   "automatic.injection": true,
   "clientlib.categories": ["<project>.base"],

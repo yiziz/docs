@@ -8,11 +8,11 @@ An ES module import is a `import` statement that intructs your browser to automa
 
 ## The problem
 
-Due to the way Vite generates outputs, `import` statements will become relative which in the context of AEM won't work. Lets say that we have a ClientLib located at: **/etc.clientlibs/&lt;project>/core.footer.js**
+Due to the way Vite generates outputs, `import` statements will become relative which in the context of AEM won't work. Lets say that we have a ClientLib located at: **/etc.clientlibs/&lt;project>/clientlibs/clientlib-site.js**
 
 Within `my-clientlib.js` lets assume that a module by the name of `modulea.js` needs to be imported by is been requested using: **../../resources/modulea.js**
 
-What you will see in your browser is a 404 request error for `modulea.js` because the request URI will end up looking something like: **/etc.clientlibs/&lt;project>/resources/modulea.js**
+What you will see in your browser is a 404 request error for `modulea.js` because the request URI will end up looking something like: **/etc.clientlibs/&lt;project>/clientlibs/clientlib-site/resources/modulea.js**
 
 ## Solving this problem
 
@@ -22,14 +22,12 @@ You might think this is a tough problem to resolve but AEM provides a nice simpl
 
 Here is an example of how to configure Vite to ensure all files are placed in the correct places.
 
-```js{5-7}
+```ts{5}
 export default defineConfig(() => ({
   build: {
     rollupOptions: {
       output: {
-        assetFileNames: 'core.header/resources/[ext]/[name][extname]',
-        chunkFileNames: 'core.footer/resources/chunks/[name].[hash].js',
-        entryFileNames: 'core.footer/resources/js/[name].js',
+        chunkFileNames: 'clientlib-site/resources/chunks/[name].[hash].js',
       },
     },
   },

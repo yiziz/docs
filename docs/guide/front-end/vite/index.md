@@ -12,18 +12,23 @@ Below is an example `vite.config.js` which intentionally uses the `vite-tsconfig
 
 What you can see is the same output structures being used align to the [structure](/guide/front-end/structure/) described previously. Some other things that are also going on:
 
+- Sets the `base` path correctly for both `command` types
+- Sets the `publicDir` path to `src/assets`. Change this to match your source structure
 - Disables brotli compression calculations (saves 2-5 seconds per prod build)
 - Disables the `manifest.json` file
 - Disables minification when running in **development** mode
 - Disables sourcemaps when not using the Vite DevServer
 - Prefer `terser` over `esbuild` for minification
+- Enfore the server origin for static assets via `server.origin`
 
-```js
+<!-- prettier-ignore-start -->
+```ts
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig(({ command, mode }) => ({
   base: command === 'build' ? '/etc.clientlibs/<project>/clientlibs/' : '/',
+  publicDir: command === 'build' ? false : 'src/assets',
 
   build: {
     brotliSize: false,
@@ -34,16 +39,21 @@ export default defineConfig(({ command, mode }) => ({
 
     rollupOptions: {
       output: {
-        assetFileNames: '<project>.header/resources/[ext]/[name][extname]',
-        chunkFileNames: '<project>.footer/resources/chunks/[name].[hash].js',
-        entryFileNames: '<project>.footer/resources/js/[name].js',
+        assetFileNames: 'clientlib-site/resources/[ext]/[name][extname]',
+        chunkFileNames: 'clientlib-site/resources/chunks/[name].[hash].js',
+        entryFileNames: 'clientlib-site/resources/js/[name].js',
       },
     },
   },
 
   plugins: [tsconfigPaths()],
+
+  server: {
+    origin: 'http://localhost:3000',
+  },
 }));
 ```
+<!-- prettier-ignore-end -->
 
 See [module imports](../module-imports/) which explains the reasoning behind the rollup `output` structure.
 
@@ -69,18 +79,22 @@ Where your inputs come from isn't important as Vite simply consumes anything you
 
 The below example demonsrates this but you will need to keep in mind that the `input` keys should be unqiue otherwise rollup will automatically append an number to the end of the filename. See rollup's [input documentation](https://rollupjs.org/guide/en/#input) for more information.
 
-```js
+```ts
 export default defineConfig(() => ({
   build: {
     rollupOptions: {
       input: {
-        app: 'src/main/webpack/css/app.scss',
         bundle: 'src/main/webpack/js/app.ts',
+        styles: 'src/main/webpack/css/app.scss',
       },
     },
   },
 }));
 ```
+
+### Making CSS its own entry
+
+Due to how AEM handles CSS it is not recommended to import it directly in your JavaScript modules as this can result in undesired outputs. For consistency, you main CSS outputs should be declared explicitly in your Vite `rollupOptions.input` object. All other CSS specific to things such as React can be imported directly via JavaScript.
 
 ## Plugins
 
@@ -96,7 +110,7 @@ If you want to customise how the Vite DevServer behaves you can do so via Vite's
 
 Please refer to Vite's [server api documention](https://vitejs.dev/config/#server-options) for more information.
 
-```js
+```ts
 export default defineConfig(() => ({
   server: {
     port: 5000,
@@ -108,33 +122,27 @@ export default defineConfig(() => ({
 
 Vite supports static assets without any configuration which works for external projects, but not AEM. To ensure static assets are served correctly in AEM you can use a configuration like the below.
 
-```js
+<!-- prettier-ignore-start -->
+```ts
 export default defineConfig(({ command }) => ({
   base: command === 'build' ? '/etc.clientlibs/<project>/clientlibs/' : '/',
 
   build: {
-    assetsDir: '<project>.header/resources/assets',
+    assetsDir: 'clientlib-site/resources/static',
+
+    rollupOtions: {
+      assetFileNames(chunk) {
+        return chunk.name?.endsWith('.css')
+          ? 'clientlib-site/resources/css/[name][extname]'
+          : 'clientlib-site/resources/static/[name].[hash][extname]';
+      },
+    }
   },
 }));
 ```
+<!-- prettier-ignore-end -->
 
 What this does is:
 
-1. Sets the base url for assets to `/etc.clientlibs/<project>/clientlibs/` when running `build`, not `serve`
-2. Ensures assets get saved the header ClientLib `resources` folder when running builds
-
-### Known issues
-
-At this current time, unless you inline your assets Vite will attempt to serve them from `/` when using the DevServer. This is related to issue [#3107](https://github.com/vitejs/vite/issues/3107) on GitHub. For now, you can set a custom `BUILD_URL` environment variable via Vite's `define` configuration.
-
-```js
-export default defineConfig(({ command }) => ({
-  define: {
-    BASE_URL: JSON.stringify(
-      command === 'serve' ? 'http://localhost:3000/' : '',
-    ),
-  },
-}));
-```
-
-Within your code you can then reference `BASE_URL` rather than `import.meta.env.BASE_URL` which currently always returns `/` instead of our configured path.
+1. Sets the base url for assets to `clientlib-site/resources/static` when running `build`, not `serve`
+2. Allow CSS and other assets to be separated which avoids everything been dumped into the `base` folder

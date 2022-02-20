@@ -10,7 +10,7 @@ A legacy bundle is code that wasn't compiled as an ES module. This is quite comm
 
 1. Your client or business may have intranet websites that rely on older browsers
 2. You don't have knowlegde of which devices you need to support
-3. You aren't ready to adopt ES modules yet _(most likely)_
+3. You aren't ready to solely adopt ES modules yet _(most likely)_
 
 ## How do I build them for AEM?
 

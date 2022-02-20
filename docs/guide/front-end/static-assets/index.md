@@ -4,53 +4,37 @@ title: Static Assets
 
 # {{ $frontmatter.title }}
 
-Vite handles static assets natively which is great because it eliminates the need for clunky configurations and maintenance. A downside to how it does manage assets, however, is by default it serves them using an absolute path and without an origin. When using the DevServer, this results in your static assets being loaded from AEM rather than Vite.
+Prior to Vite `2.6` there was no way to resolve static assets in JavaScript and CSS without some clunky workarounds. However, as of `2.6` and greater this is fixed.
 
-To overcome this, the existing `@aem-vite/import-rewriter` plugin has been updated to include an additional rewriter for CSS files.
+## Importing Static Assets
 
-## Rollup plugin
+Based on where you set your `publicDir` will depend on the base path, but for this we will assume it is `src/assets`.
 
-To get started, simply add `@aem-vite/import-rewriter` as a dependency in your project.
+To include an asset in both JavaScript and CSS we can do the following:
 
-```bash
-npm install --save-dev @aem-vite/import-rewriter
-# or; yarn
-yarn add -D @aem-vite/import-rewriter
+```scss
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''),
+    url('/src/assets/fonts/open-sans/open-sans-v27-latin-300.woff2') format('woff2'),
+    url('/src/assets/fonts/open-sans/open-sans-v27-latin-300.woff') format('woff');
+}
 ```
 
-## Configuration
+## Usage with React
 
-Getting this plugin configured is really simple, all it requires is the local assets path and your ClientLib public path.
+When using assets such as SVG's with React the path will become relative to the assets directory. The reason for this is how Vite's React plugin handles static assets by converting them into components as required. For instance, if we have an asset called `vue-logo.svg` we would import it using the below.
 
-As can be seen below, `publicPath` checks the Vite `command` that was executed and applies either the Vite DevServer URL or the AEM ClientLib public path. This is important as when using the DevServer, a clear distintion is needed to ensure Vite is serving assets rather than AEM.
+```ts
+import React from 'react';
 
-```js{1,6-9}
-import { cssImportRewriter } from '@aem-vite/import-rewriter';
-
-export default defineConfig(({ command }) => ({
-  plugins: [
-    // ... all other plugins before, 'cssImportRewriter' must be last
-    cssImportRewriter({
-      assetsBasePath: '/src/assets',
-      publicPath: command === 'serve' ? 'http://localhost:3000/assets' : '/etc.clientlibs/<project>/clientlibs/',
-    }),
-  ],
-}));
+import VueLogo from '../../../assets/vue-logo.svg';
 ```
 
-::: warning Why does 'publicPath' use different paths?
-As mentioned, Vite will serve assets from `/`. The import rewriter will use the path you provide to ensure assets are served from the correct location.
-:::
+The above example assumes where your React component lives so please update it to reflect your project structure.
 
-### Properties
+## Known Issues
 
-| Property Name                                                                                                                      | Type     | Required |
-| :--------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| **assetsBasePath**<br><small>The absolute path used in your CSS to load static assets.</small>                                     | `string` | Yes      |
-| **publicPath**<br><small>The AEM proxy path to your ClientLibs directory; or the Vite DevServer path when working locally.</small> | `string` | Yes      |
-
-## How this works
-
-Nothing too complex is going on here, `cssImportRewriter` will simply find and replace all instances of the `assetsBasePath` with the provided `publicPath`. This process is extremely quick and occurs during Rollup's `transform` stage which is just before the file is written.
-
-After that, it is all pure magic!
+The only current issue known to us is a warning that appears in the terminal output for Vite asset transformations. This occurs because we're including `/src` in the path which when using Vite standalone isn't required. Prepending `/src` is required for AEM projects as it enforces the correct processing of such assets during `build` tasks.

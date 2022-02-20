@@ -22,28 +22,29 @@ yarn add -D @aem-vite/import-rewriter
 
 Getting this plugin configured is really simple, all it requires is your ClientLib public path.
 
-```js{1,6-8}
+```ts{1,6-9}
 import { bundlesImportRewriter } from '@aem-vite/import-rewriter';
 
 export default defineConfig(() => ({
   plugins: [
-    // ... all other plugins before, 'bundlesImportRewriter' must be last
+    // ... all other plugins
     bundlesImportRewriter({
-      publicPath: '/etc.clientlibs/<project>/clientlibs/',
+      publicPath: '/etc.clientlibs/<project>/clientlibs/clientlib-site',
+      resourcesPath: 'resources/js',
     }),
   ],
 }));
 ```
 
-### Properties
+### Configuration
 
-| Property Name                                                                                                                      | Type     | Required |
-| :--------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| **caching**<br><small>Instruct import rewriter how to handle AEM caching.</small>                                                  | `object` | No       |
-| **mainEntryPath**<br><small>Custom entry path for your Vite configuration. This is automatically identified in most cases.</small> | `string` | No       |
-| **publicPath**<br><small>The AEM proxy path to your ClientLibs directory.</small>                                                  | `string` | Yes      |
+| Property Name                                                                             | Type     | Required |
+| :---------------------------------------------------------------------------------------- | -------- | -------- |
+| **caching**<br><small>Instruct import rewriter how to handle AEM caching.</small>         | `object` | No       |
+| **publicPath**<br><small>The AEM proxy path to your ClientLib directory.</small>          | `string` | Yes      |
+| **resourcesPath**<br><small>The folder where Vite generated JavaScript resources.</small> | `string` | Yes      |
 
-#### Caching
+#### Caching options
 
 | Property Name                                                                   | Type      | Required | Default    |
 | :------------------------------------------------------------------------------ | --------- | -------- | ---------- |
@@ -120,7 +121,7 @@ This property assumes you already have an npm script called `build` in your `pac
 
 From there, you can update your Vite configuration to look for `AEM_CACHING` and then enable caching and minification. An assumption is made that caching and minification are both enabled, if you need separation, add another Maven profile to set another property/environment variable.
 
-```js{3,11-14}
+```ts{3,12-15}
 import { bundlesImportRewriter } from '@aem-vite/import-rewriter';
 
 const needsCaching = process.env.AEM_CACHING === 'true';
@@ -129,7 +130,8 @@ export default defineConfig(({ command, mode }) => ({
   plugins: [
     // ... all other plugins before, 'bundlesImportRewriter' must be last
     bundlesImportRewriter({
-      publicPath: '/etc.clientlibs/<project>/clientlibs/',
+      publicPath: '/etc.clientlibs/<project>/clientlibs/clientlib-site',
+      resourcesPath: 'resources/js',
 
       caching: {
         enabled: command === 'build' && mode === 'production' && needsCaching,
