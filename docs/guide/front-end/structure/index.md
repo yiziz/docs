@@ -30,7 +30,7 @@ Your template policy(s) will also need to be updated to support this structure. 
   <policy
     jcr:primaryType="nt:unstructured"
     sling:resourceType="wcm/core/components/policy/policy"
-    clientlibs="[clientlib-site]"
+    clientlibs="[]"
     clientlibsJsHead="[clientlib-site]"/>
 </page>
 ```
