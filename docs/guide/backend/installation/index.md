@@ -4,6 +4,10 @@ title: Installation
 
 # {{ $frontmatter.title }}
 
+::: warning Deprecation Notice
+Please be aware that the ClientLib filtering functionality in the AEM Vite plugin for AEM is now deprecated and will be discontinued in the near future. A Vite specifc plugin will be made available that enhances the local development experience. See [Vite Plugin](../../front-end/vite-plugin/) for additional information.
+:::
+
 Installation is straightforward and easy. Please ensure your read the below carefully as some manual steps are needed to finish the installation.
 
 ## Add the Maven dependency

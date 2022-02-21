@@ -8,9 +8,9 @@ Vite uses rollup under the hood which supports dynamic imports just like webpack
 
 The import rewriter takes the ES module import paths and converts them into AEM friendly paths automatically.
 
-## Rollup plugin
+## Vite Plugin
 
-AEM Vite provides a rollup plugin that will rewrite dynamic import paths to your `/etc.clientlibs` proxy path.
+AEM Vite provides a plugin that will rewrite dynamic import paths to your `/etc.clientlibs` proxy path.
 
 ```bash
 npm install --save-dev @aem-vite/import-rewriter
@@ -36,7 +36,7 @@ export default defineConfig(() => ({
 }));
 ```
 
-### Configuration
+### Plugin options
 
 | Property Name                                                                             | Type     | Required |
 | :---------------------------------------------------------------------------------------- | -------- | -------- |
@@ -52,7 +52,7 @@ export default defineConfig(() => ({
 | **keyFormat**<br><small>Long term cache key format.</small>                     | `string`  | No       | `lc-%s-lc` |
 | **minification**<br><small>Should `.min` be added to the import path?</small>   | `boolean` | No       | `false`    |
 
-## How this works
+## How This Works?
 
 Under the hood `es-module-lexer` is used to parse the rollup chunk source and identifies all of the `import` statements. Once identified, they are parsed and all instances that use path patterns such as `./` or `../` will get replaced with `publicPath` configured in your plugin configuration.
 
@@ -62,7 +62,7 @@ By rewriting the imports we solve another issue and that is we prevent Vite addi
 
 In addition to handling import paths, the main entry path is also rewritten to the correct AEM ClientLib path to ensure ES module imports behave correctly in AEM.
 
-## Caching and minification
+## Caching and Minification
 
 So your code doesn't use the wrong path when in a testing, staging or production environment, it is good practice to dynamically switch on minification for AEM Vite using an environment variable via your Maven `pom.xml` file.
 

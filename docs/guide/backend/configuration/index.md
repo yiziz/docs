@@ -4,6 +4,10 @@ title: Configuration
 
 # {{ $frontmatter.title }}
 
+::: warning Deprecation Notice
+Please be aware that the ClientLib filtering functionality in the AEM Vite plugin for AEM is now deprecated and will be discontinued in the near future. A Vite specifc plugin will be made available that enhances the local development experience. See [Vite Plugin](../../front-end/vite-plugin/) for additional information.
+:::
+
 AEM Vite provides a factory configuration which enables multiple different front end setups to be used at the same time. This means that you can work on multiple codebases without ever having to stop and switch between configurations.
 
 ## OSGI configuration
@@ -14,7 +18,7 @@ Within your projects OSGI configuration folder, create a new file called:
 
 Because AEM Vite allows factories, you can create as many projects as you would like and you only need to replace `project` with something unqiue.
 
-::: warning .cfg.json not working?
+::: info .cfg.json not working?
 If using `.cfg.json` doesn't work for you, switch to the XML format `.config.xml`. Read more about about creating [OSGI configuration](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/implementing/deploying/configuring-osgi.html?lang=en) files.
 :::
 

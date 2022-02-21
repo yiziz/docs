@@ -12,7 +12,7 @@ The best-case structure recommended for ClientLibs when using AEM Vite is as bel
 
 ```
 /apps/<project>/clientlibs/clientlib-site
-/apps/<project>/clientlibs/clientlib-site/resources/
+/apps/<project>/clientlibs/clientlib-site/resources
 /apps/<project>/clientlibs/clientlib-site/css.txt
 /apps/<project>/clientlibs/clientlib-site/js.txt
 ```
