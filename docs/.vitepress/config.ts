@@ -1,4 +1,7 @@
-import { defineConfigWithTheme, type UserConfig } from 'vitepress';
+import fs from 'fs';
+import path from 'path';
+
+import { defineConfigWithTheme } from 'vitepress';
 
 const title = 'AEM Vite';
 const description =
@@ -195,6 +198,14 @@ export default defineConfigWithTheme({
         property: 'twitter:site',
         content: '@cshawaus',
       },
+    ],
+    [
+      'script',
+      {},
+      fs.readFileSync(
+        path.resolve(__dirname, './inlined-scripts/fathom.js'),
+        'utf-8',
+      ),
     ],
   ],
 
