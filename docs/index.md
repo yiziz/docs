@@ -1,11 +1,25 @@
 ---
-home: true
+layout: home
+sidebar: false
+
+titleTemplate: Next generation front end tooling made simple for AEM
+
 heroImage: /static/logo-outlined.png
 heroAlt: AEM Vite logo
 heroText: Vite for AEM
-tagline: Next Generation Front End Tooling made simple for AEM!
-actionText: Get Started
-actionLink: /guide/
+
+hero:
+  name: AEM Vite
+  text: Front end AEM tooling for the future
+  tagline: Bring your next AEM project into the modern era with the power of Vite.
+  actions:
+    - theme: brand
+      text: Get Started
+      link: /guide/
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/aem-vite
+
 features:
   - title: 🔎 Transparency
     details: AEM Vite becomes a background superhero that magically switches things around for you.
@@ -24,5 +38,4 @@ features:
 
   - title: 🚀 It's fast... no, really!
     details: What else is there to say really, when AEM Vite is running, you wouldn't even know.
-footer: Apache 2.0 Licensed | Copyright © 2021-present Chris Shaw. Vite wording and logos are property of Evan You. Adobe and AEM wording and logos are property of Adobe Inc.
 ---

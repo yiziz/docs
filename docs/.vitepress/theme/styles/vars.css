@@ -1,4 +1,13 @@
 :root {
-  --c-brand: #d7373f;
-  --c-brand-light: #e34850;
+  --vp-c-brand: #f4414a;
+  --vp-c-brand-light: #e75a61;
+  --vp-c-brand-lighter: #e6686f;
+  --vp-c-brand-dark: var(--vp-c-brand-lighter);
+  --vp-c-brand-darker: var(--vp-c-brand-light);
+  --vp-c-sponsor: var(--vp-c-brand);
+
+  --vp-button-brand-bg: var(--vp-c-brand);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-light);
+
+  --vp-home-hero-name-color: #d7373f;
 }

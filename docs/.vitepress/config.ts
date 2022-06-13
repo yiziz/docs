@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { defineConfigWithTheme } from 'vitepress';
+import { defineConfigWithTheme, DefaultTheme } from 'vitepress';
 
 const title = 'AEM Vite';
 const description =
@@ -11,7 +11,7 @@ function getGuideSidebar() {
   return [
     {
       text: 'Guide',
-      children: [
+      items: [
         {
           text: 'Overview',
           link: '/guide/',
@@ -20,7 +20,7 @@ function getGuideSidebar() {
     },
     {
       text: 'Backend (AEM)',
-      children: [
+      items: [
         {
           text: 'Installation',
           link: '/guide/backend/installation/',
@@ -37,7 +37,7 @@ function getGuideSidebar() {
     },
     {
       text: 'Front End',
-      children: [
+      items: [
         { text: 'Preparing your project', link: '/guide/front-end/' },
         { text: 'Structure', link: '/guide/front-end/structure/' },
         { text: 'Vite Configuration', link: '/guide/front-end/vite/' },
@@ -49,14 +49,14 @@ function getGuideSidebar() {
     },
     // {
     //   text: 'Extending AEM Vite',
-    //   children: [
+    //   items: [
     //     { text: 'Why extend AEM Vite?', link: '/guide/extending/why/' },
     //     { text: 'Super-powered ClientLibs', link: '/guide/extending/clientlibs/' },
     //   ],
     // },
     {
       text: 'Legacy Bundles',
-      children: [
+      items: [
         { text: 'What are they?', link: '/guide/legacy-bundles/' },
         {
           text: 'ClientLibs support',
@@ -65,20 +65,27 @@ function getGuideSidebar() {
       ],
     },
     {
-      text: 'FAQs',
-      link: '/guide/faqs/',
-    },
-    {
-      text: 'Migrate to v2.x',
-      link: '/guide/migrate-to-v2/',
+      text: 'Support',
+      items: [
+        {
+          text: 'FAQs',
+          link: '/guide/faqs/',
+        },
+        {
+          text: 'Migrate to v2.x',
+          link: '/guide/migrate-to-v2/',
+        },
+      ],
     },
   ];
 }
 
-export default defineConfigWithTheme({
+export default defineConfigWithTheme<DefaultTheme.Config>({
   base: '/',
   title,
+  titleTemplate: 'AEM Vite',
   description,
+  lastUpdated: true,
 
   head: [
     [
@@ -210,17 +217,17 @@ export default defineConfigWithTheme({
   ],
 
   themeConfig: {
-    docsDir: 'docs',
-    docsBranch: 'main',
-    editLinks: false,
-    editLinkText: 'Edit this page on GitHub',
-    lastUpdated: false,
     logo: 'static/logo.png',
-    repo: 'aem-vite',
 
     algolia: {
+      appId: 'BH4D9OD16A',
       apiKey: '0479a3a9031b5947143a70dc4969da0d',
       indexName: 'aemvite',
+    },
+
+    editLink: {
+      dir: 'docs',
+      repo: 'aem-vite/docs',
     },
 
     nav: [
@@ -259,6 +266,11 @@ export default defineConfigWithTheme({
       },
     ],
 
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/aem-vite' },
+      { icon: 'linkedin', link: 'https://www.linkedin.com/groups/14049527/' },
+    ],
+
     sidebar: {
       '/guide/': getGuideSidebar(),
       '/': getGuideSidebar(),
@@ -266,11 +278,8 @@ export default defineConfigWithTheme({
 
     footer: {
       copyright: `Copyright © 2021-${new Date().getFullYear()} Chris Shaw`,
-
-      license: {
-        text: 'Apache-2.0 License',
-        link: 'https://www.apache.org/licenses/LICENSE-2.0',
-      },
+      message:
+        'Apache 2.0 Licensed. Vite wording and logos are property of Evan You. Adobe and AEM wording and logos are property of Adobe Inc.',
     },
   },
 });

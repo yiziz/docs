@@ -8,10 +8,11 @@
   "license": "MIT",
   "scripts": {
     "docs:dev": "vitepress dev docs --port 7100",
-    "docs:build": "vitepress build docs --mpa",
+    "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs --port 7200"
   },
   "devDependencies": {
-    "vitepress": "^0.22.2"
+    "@types/node": "^16.11.39",
+    "vitepress": "1.0.0-alpha.1"
   }
 }
