@@ -24,6 +24,8 @@ Getting started is quick and simple. Run the below command to install the Vite A
 npm install --save-dev @aem-vite/vite-aem-plugin
 # or; yarn
 yarn add -D @aem-vite/vite-aem-plugin
+# or; pnpm
+pnpm add -D @aem-vite/vite-aem-plugin
 ```
 
 ## Using The Plugin
@@ -36,7 +38,7 @@ vite serve
 vite build
 ```
 
-By default `@aem-vite/vite-aem-plugin` enforces strict port mode when using the Vite DevServer which will automatically jump to the next available port if `3000` is unavailable.
+By default `@aem-vite/vite-aem-plugin` enforces strict port mode when using the Vite DevServer. This will automatically jump to the next available port if `3000` is unavailable.
 
 ## Configuration
 
@@ -53,6 +55,10 @@ export default defineConfig(() => ({
   ],
 }));
 ```
+
+::: info
+Please refer to the [vite configuration](/guide/front-end/vite/) and [dynamic imports](/guide/front-end/dynamic-imports/) documentation for more information about the `publicPath` option.
+:::
 
 ### Plugin options
 
@@ -97,4 +103,4 @@ Adding slashes to the start or end of these paths will cause in the proxy matche
 
 ## React Support
 
-Whenever the Vite React plugin is detected the Vite AEM plugin will automatically inject the React fast refresh script.
+Whenever the `@vitejs/plugin-react` plugin is detected, the AEM Vite plugin will automatically inject the React fast refresh script.
