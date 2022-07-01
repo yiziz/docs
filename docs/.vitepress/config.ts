@@ -226,8 +226,7 @@ export default defineConfigWithTheme<DefaultTheme.Config>({
     },
 
     editLink: {
-      dir: 'docs',
-      repo: 'aem-vite/docs',
+      pattern: 'https://github.com/aem-vite/docs/edit/main/docs/:path',
     },
 
     nav: [
