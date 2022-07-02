@@ -19,15 +19,20 @@ function getGuideSidebar() {
       ],
     },
     {
-      text: 'Backend (AEM)',
+      text: 'Getting Started',
       items: [
         {
           text: 'Installation',
-          link: '/guide/backend/installation/',
+          link: '/guide/installation/',
         },
+      ],
+    },
+    {
+      text: 'Backend (AEM)',
+      items: [
         {
-          text: 'Configuration',
-          link: '/guide/backend/configuration/',
+          text: 'ClientLibs',
+          link: '/guide/backend/clientlibs/',
         },
         {
           text: 'Permissions',

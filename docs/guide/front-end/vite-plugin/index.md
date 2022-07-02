@@ -14,10 +14,6 @@ In addition to these points, A Vite specific plugin also aims to bring some boil
 
 ## Installation
 
-::: danger Prerelease version
-Please be aware that the current public release is a prerelease version and is not intended for production use. If you do wish to use it you can raise [issues in GitHub repo](https://github.com/aem-vite/vite-aem-plugin/issues).
-:::
-
 Getting started is quick and simple. Run the below command to install the Vite AEM plugin.
 
 ```bash

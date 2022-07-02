@@ -25,16 +25,16 @@ features:
     details: AEM Vite becomes a background superhero that magically switches things around for you.
 
   - title: ⚡️ Vite-Powered
-    details: Get all of the benefits Vite has to offer without needing to fiddle around with AEM ClientLibs.
+    details: Get all of the benefits Vite has to offer without needing to fiddle around with complex ClientLib configurations.
 
   - title: 💡 Designed for Simplicity
-    details: The goal was to bring Vite to AEM without the worry of annoying development tasks and tech debt.
+    details: Bring Vite to AEM without the worry of annoying development tasks and tech debt.
 
   - title: ⚙️ Endless Configurations
     details: Setup as many different configs as your project needs. AEM Vite will handle all of the politics for you.
 
   - title: 🔋 Empowers Front End
-    details: Front End developers are able to spend more time writing code, and less time configuring tools.
+    details: Front End developers are able to spend more time writing code, and less time maintaining complex tools.
 
   - title: 🚀 It's fast... no, really!
     details: What else is there to say really, when AEM Vite is running, you wouldn't even know.
