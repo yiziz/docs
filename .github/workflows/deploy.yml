@@ -13,15 +13,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.1
 
-      - uses: actions/setup-node@v1
+      - uses: pnpm/action-setup@v2
         with:
-          node-version: "16"
+          version: 7
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "pnpm"
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Build docs
-        run: yarn docs:build
+        run: pnpm docs:build
 
       - name: Copy CNAME to docs
         run: cp CNAME docs/.vitepress/dist/
