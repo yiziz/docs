@@ -9,10 +9,14 @@
   "scripts": {
     "docs:dev": "vitepress dev docs --port 7100",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs --port 7200"
+    "docs:serve": "vitepress serve docs --port 7200",
+    "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
-    "@types/node": "^16.11.42",
-    "vitepress": "1.0.0-alpha.4"
+    "@types/node": "^18.11.18",
+    "vitepress": "1.0.0-alpha.40"
+  },
+  "dependencies": {
+    "@algolia/client-search": "^4.14.3"
   }
 }
