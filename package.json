@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
-    "vitepress": "1.0.0-alpha.40"
+    "vitepress": "1.0.0-alpha.45"
   },
   "dependencies": {
     "@algolia/client-search": "^4.14.3"
